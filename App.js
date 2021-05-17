@@ -68,4 +68,5 @@ import {store, persistor}  from './app/redux/store/configStore';
      this.props.navigation.navigate(isLoggedIn !== '1' ? 'Home' : 'dashboard');
    }
  }
+ //this is app.js
  
