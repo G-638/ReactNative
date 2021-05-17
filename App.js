@@ -25,7 +25,7 @@ import {store, persistor}  from './app/redux/store/configStore';
  const Stack = createStackNavigator();
 //  const {store, persistor} = configureStore();
  export default class App extends Component {
- 
+  
    render() {
      return (
 
