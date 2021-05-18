@@ -1,3 +1,5 @@
 # ReactNative
 React Native programs
-redux setuo
+redux setup
+By
+G.Sathishkumar
