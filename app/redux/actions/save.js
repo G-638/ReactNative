@@ -1,8 +1,8 @@
-import * as types from '../constants';
+import * as types from './types';
 
 export function setUserDetails(userObj) {
     return {
-            type: types.SET_USER_DETAILS,
-            payload: userObj
+        type: types.SET_USER_DETAILS,
+        payload: userObj
     }
 }

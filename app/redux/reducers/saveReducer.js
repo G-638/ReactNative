@@ -1,17 +1,14 @@
-import { SET_USER_DETAILS } from '../constants';
-const initialState = {
-  // username:'' , 
+import { SET_USER_DETAILS } from '../actions/types';
+const initialState = { 
   userObj: {
         fileUri:'',
         userName: '',
         dob: '',
-        // language: '',
         mobileNumber: '',
         address: ''
       },
 };
 const createReducer = (state = initialState, action) => {
-  console.log(action);
   switch(action.type) {
   case SET_USER_DETAILS:
     return {
