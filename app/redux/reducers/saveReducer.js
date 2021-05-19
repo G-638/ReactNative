@@ -1,5 +1,6 @@
-import { SET_USER_DETAILS } from '../actions/types';
-const initialState = { 
+import { SET_TOKEN, SET_USER_DETAILS, USER_LOGIN_API } from '../actions/types';
+const initialState = {
+  successFunc: '',
   userObj: {
         fileUri:'',
         userName: '',
@@ -14,6 +15,11 @@ const createReducer = (state = initialState, action) => {
     return {
     ...state,
     userObj:action.payload
+    };
+    case SET_TOKEN:
+    return {
+    ...state,
+    successFunc: action.payload
     };
   default:
   return state;

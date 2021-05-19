@@ -6,3 +6,17 @@ export function setUserDetails(userObj) {
         payload: userObj
     }
 }
+
+export function setUserLogin(params, failureFunc,successFunc) {
+    return {
+        type: types.SET_USER_LOGIN,
+        params,failureFunc,successFunc
+    }
+}
+
+export function setToken(successFunc) {
+    return {
+        type: types.SET_TOKEN,
+        payload: successFunc
+    }
+}

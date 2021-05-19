@@ -14,10 +14,10 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import styles from './style.js';
 import DefaultStrings from '../../constants/DefaultString';
 import Navkey from '../../constants/Navkey';
-import { postApi } from '../../services/api';
-import { login } from '../../services/user';
+import { connect } from 'react-redux';
+import * as UserActions from '../../redux/actions/save';
 
-export default class LoginScreen extends Component {
+class LoginScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -90,21 +90,20 @@ export default class LoginScreen extends Component {
   /**
    * On user login
    */
-  _login = async () => {
-
-    let params = {
+  _login = () => {
+    const params = {
       email: this.state.userName,
       password: this.state.password,
     };
-    let data = await login(params, (failureFunc) => {
-      console.log('failureFunc', failureFunc);
-      Alert.alert(failureFunc);
-    }, (successFunc) => {
-      console.log('successFunc', successFunc);
-      AsyncStorage.setItem('isLoggedIn', '1'); // Set authentication to logined user
-      this.props.navigation.navigate(Navkey.DASHBOARD);
-    });
-    console.log(data);
+    this.props.setUserLogin(params, (failureFunc) => {
+        console.log('failureFunc', failureFunc);
+        Alert.alert(failureFunc);
+      }, 
+      (successFunc) => {
+        console.log('successFunc', successFunc);
+        AsyncStorage.setItem('isLoggedIn', successFunc); // Set authentication to logined user
+        this.props.navigation.navigate(Navkey.DASHBOARD);
+      });
   };
 
   render() {
@@ -199,3 +198,11 @@ export default class LoginScreen extends Component {
   }
 }
 
+
+
+export const mapDispatchToProps = (dispatch) => ({
+  setUserLogin: (params, failureFunc, successFunc) => dispatch(UserActions.setUserLogin(params, failureFunc, successFunc)),
+})
+
+
+export default connect( null, mapDispatchToProps)(LoginScreen);

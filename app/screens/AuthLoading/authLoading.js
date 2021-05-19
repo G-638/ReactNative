@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, ActivityIndicator, StatusBar } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Navkey from '../../constants/Navkey';
-
 export default class AuthLoadingScreen extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +17,6 @@ export default class AuthLoadingScreen extends Component {
   }
   _loadData = async () => {
     const isLoggedIn = await AsyncStorage.getItem('isLoggedIn');
-    this.props.navigation.navigate(isLoggedIn !== '1' ? Navkey.HOME : Navkey.DASHBOARD);
+    this.props.navigation.navigate(isLoggedIn !== 'QpwL5tke4Pnpja7X4' ? Navkey.HOME : Navkey.DASHBOARD);
   }
 }
