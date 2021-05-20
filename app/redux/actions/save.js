@@ -14,9 +14,15 @@ export function setUserLogin(params, failureFunc,successFunc) {
     }
 }
 
-export function setToken(successFunc) {
+export function setToken(token) {
     return {
         type: types.SET_TOKEN,
-        payload: successFunc
+        payload: token
+    }
+}
+
+export function userLogOut() {
+    return {
+        type: types.USER_LOG_OUT,
     }
 }

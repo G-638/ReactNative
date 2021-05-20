@@ -16,6 +16,7 @@ import DefaultStrings from '../../constants/DefaultString';
 import Navkey from '../../constants/Navkey';
 import { connect } from 'react-redux';
 import * as UserActions from '../../redux/actions/save';
+import store from '../../redux/store/configStore';
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -95,13 +96,15 @@ class LoginScreen extends Component {
       email: this.state.userName,
       password: this.state.password,
     };
+    //console.log(this.props.gettoken);
     this.props.setUserLogin(params, (failureFunc) => {
         console.log('failureFunc', failureFunc);
         Alert.alert(failureFunc);
       }, 
       (successFunc) => {
         console.log('successFunc', successFunc);
-        AsyncStorage.setItem('isLoggedIn', successFunc); // Set authentication to logined user
+        //AsyncStorage.setItem('isLoggedIn', successFunc);
+        // const isLoggedIn = this.props.gettoken;
         this.props.navigation.navigate(Navkey.DASHBOARD);
       });
   };
@@ -198,7 +201,9 @@ class LoginScreen extends Component {
   }
 }
 
-
+// export const mapStateToProps = (store) => ({
+//   gettoken: store.user.token,
+// })
 
 export const mapDispatchToProps = (dispatch) => ({
   setUserLogin: (params, failureFunc, successFunc) => dispatch(UserActions.setUserLogin(params, failureFunc, successFunc)),

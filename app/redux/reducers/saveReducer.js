@@ -1,6 +1,6 @@
-import { SET_TOKEN, SET_USER_DETAILS, USER_LOGIN_API } from '../actions/types';
+import * as types from '../actions/types';
 const initialState = {
-  successFunc: '',
+  token: '',
   userObj: {
         fileUri:'',
         userName: '',
@@ -11,15 +11,19 @@ const initialState = {
 };
 const createReducer = (state = initialState, action) => {
   switch(action.type) {
-  case SET_USER_DETAILS:
+  case types.SET_USER_DETAILS:
     return {
     ...state,
     userObj:action.payload
     };
-    case SET_TOKEN:
+    case types.SET_TOKEN:
     return {
     ...state,
-    successFunc: action.payload
+    token: action.payload
+    };
+    case types.USER_LOG_OUT:
+    return {
+    token:''
     };
   default:
   return state;
