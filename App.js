@@ -7,11 +7,11 @@
  */
 
 import React, { Component } from 'react';
-import Navigation from './app/navigation/navigation'
+import Navigation from './app/navigation/navigation';
 export default class App extends Component {
   render() {
     return (
-          <Navigation />
+          <Navigation/>
     );
   };
 }

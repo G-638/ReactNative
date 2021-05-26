@@ -22,7 +22,7 @@ export default class Navigation extends Component {
       <NavigationContainer>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <Stack.Navigator>
+            <Stack.Navigator initialRouteName={Navkey.AUTH_LOADING}>
               <Stack.Screen
                 name={Navkey.AUTH_LOADING}
                 component={AuthLoadingScreen}
